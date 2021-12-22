@@ -145,6 +145,24 @@
     <ClInclude Include="Component\Player\PlayerAnimator.h">
       <Filter>Component\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Object\BrotherhoodBackground1.h">
+      <Filter>Object\Brotherhood</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\MapSpriteComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BrotherhoodBackground2.h">
+      <Filter>Object\Brotherhood</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BrotherhoodBackground3.h">
+      <Filter>Object\Brotherhood</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BrotherhoodBackground4.h">
+      <Filter>Object\Brotherhood</Filter>
+    </ClInclude>
+    <ClInclude Include="Object\BrotherhoodBackground5.h">
+      <Filter>Object\Brotherhood</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BasicGameFramework.rc">
@@ -249,6 +267,24 @@
     </ClCompile>
     <ClCompile Include="Component\Player\PlayerAnimator.cpp">
       <Filter>Component\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BrotherhoodBackground1.cpp">
+      <Filter>Object\Brotherhood</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\MapSpriteComponent.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BrotherhoodBackground2.cpp">
+      <Filter>Object\Brotherhood</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BrotherhoodBackground3.cpp">
+      <Filter>Object\Brotherhood</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BrotherhoodBackground4.cpp">
+      <Filter>Object\Brotherhood</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\BrotherhoodBackground5.cpp">
+      <Filter>Object\Brotherhood</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -149,6 +149,7 @@
     </ClInclude>
     <ClInclude Include="Component\HitBoxComponent.h" />
     <ClInclude Include="Component\Image.h" />
+    <ClInclude Include="Component\MapSpriteComponent.h" />
     <ClInclude Include="Component\Player\PlayerAnimator.h" />
     <ClInclude Include="Component\Player\PlayerMovement.h" />
     <ClInclude Include="Component\RectComponent.h" />
@@ -160,6 +161,11 @@
     <ClInclude Include="Manager\ImageManager.h" />
     <ClInclude Include="Manager\SceneManager.h" />
     <ClInclude Include="Object\BrotherhoodBackground.h" />
+    <ClInclude Include="Object\BrotherhoodBackground1.h" />
+    <ClInclude Include="Object\BrotherhoodBackground2.h" />
+    <ClInclude Include="Object\BrotherhoodBackground3.h" />
+    <ClInclude Include="Object\BrotherhoodBackground4.h" />
+    <ClInclude Include="Object\BrotherhoodBackground5.h" />
     <ClInclude Include="Object\GameObject.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
@@ -196,6 +202,7 @@
     </ClCompile>
     <ClCompile Include="Component\HitBoxComponent.cpp" />
     <ClCompile Include="Component\Image.cpp" />
+    <ClCompile Include="Component\MapSpriteComponent.cpp" />
     <ClCompile Include="Component\Player\PlayerAnimator.cpp" />
     <ClCompile Include="Component\Player\PlayerMovement.cpp" />
     <ClCompile Include="Component\RectComponent.cpp" />
@@ -205,6 +212,11 @@
     <ClCompile Include="Manager\ImageManager.cpp" />
     <ClCompile Include="Manager\SceneManager.cpp" />
     <ClCompile Include="Object\BrotherhoodBackground.cpp" />
+    <ClCompile Include="Object\BrotherhoodBackground1.cpp" />
+    <ClCompile Include="Object\BrotherhoodBackground2.cpp" />
+    <ClCompile Include="Object\BrotherhoodBackground3.cpp" />
+    <ClCompile Include="Object\BrotherhoodBackground4.cpp" />
+    <ClCompile Include="Object\BrotherhoodBackground5.cpp" />
     <ClCompile Include="Object\GameObject.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>

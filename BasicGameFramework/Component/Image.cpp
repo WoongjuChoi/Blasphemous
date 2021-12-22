@@ -94,7 +94,7 @@ void Image::Render(HDC hdc, int destX, int destY, int frameX, int frameY, float 
 {
 	// frameX : 0, frameY : 0 => 시작 (68 * 0, 0) 얼마나 복사할건가 (68, 104)
 	// frameX : 1, frameY : 0 => 시작 (68 * 1, 0)  (68, 104)
-	// frameX : 2, frameY : 0 => 시작 (68 * 2, 0)  (68, 104)
+	// frameX : 2, frameY : 0 => 시작 (68 * 2, 0)  (68, 104) 
 	// frameX : 3, frameY : 0 => 시작 (68 * 3, 0)  (68, 104)
 
 	if (isTransparent)
@@ -158,6 +158,27 @@ void Image::Render(HDC hdc, int destX, int destY, int frameX, int frameY, float 
 			imageInfo->frameWidth * frameX,				// 원본 비트맵 복사 시작 위치 x
 			imageInfo->frameHeight * frameY,			// 원본 비트맵 복사 시작 위치 y
 			SRCCOPY);			// 복사 옵션
+	}
+}
+
+void Image::MapRender(HDC hdc, int originX, int originY, int printWidth, int printHeight, int scale)
+{
+	if (isTransparent)
+	{
+		GdiTransparentBlt(
+			hdc,
+			0,
+			0,
+			imageInfo->width,
+			imageInfo->height,
+
+			imageInfo->hMemDc,
+			originX,
+			originY,
+			printWidth * scale,
+			printHeight * scale,
+			transColor
+		);
 	}
 }
 

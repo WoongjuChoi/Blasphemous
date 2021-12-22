@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "AnimationComponent.h"
 #include "Object/GameObject.h"
-
+#include <iostream>
 
 void AnimationComponent::Update()
 {

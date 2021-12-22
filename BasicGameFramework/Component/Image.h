@@ -1,25 +1,5 @@
 #pragma once
 
-//class MainScene : public Scene
-//{
-//public:
-//	virtual void Init()
-//	{
-//		auto farLayer = new Layer(1);
-//		auto farBg = new BackGround(farLayer);
-//		farBg->GetComponent<SpriteComponent>()->SetImage("bg1.bmp");
-//		farBg->GetComponent<ScrollComponent>()->SetSpeed(100.0f);
-//
-//		auto middleLayer = new Layer(2);
-//		auto middleBg = new BackGround(middleLayer);
-//		middleBg->GetComponent<SpriteComponent>()->SetImage("bg2.bmp");
-//		middleBg->GetComponent<ScrollComponent>()->SetSpeed(200.0f);
-//
-//		auto closeLayer = new Layer(3);
-//
-//	}
-//};
-
 class Image
 {
 public:
@@ -84,6 +64,7 @@ public:
 	void Release();	// 메모리 해제
 
 	void Render(HDC hdc, int destX, int destY, int frameX = 0, int frameY = 0, float scale = 1.0f);	// 이미지 데이터를 화면에 복사
+	void MapRender(HDC hdc, int originX, int originY, int printWidth, int printHeight, int scale);
 
 	HDC GetMemDC() { if (imageInfo) return imageInfo->hMemDc; return NULL; }
 

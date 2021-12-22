@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "PlayerMovement.h"
 #include "../CircleComponent.h"
 
@@ -8,7 +9,8 @@
 #include "../AnimationComponent.h"
 #include "PlayerAnimator.h"
 
-#include "stdafx.h"
+#include <iostream>
+
 
 void PlayerMovement::Update()
 {
@@ -53,7 +55,14 @@ void PlayerMovement::Update()
 	if (Input::GetButton('A'))
 	{
 		SetSpeed(200.0f);
-		pos.x -= static_cast<LONG>(_speed * Timer::GetDeltaTime());
+		g_pos.x -= static_cast<LONG>(_speed * Timer::GetDeltaTime());
+
+		if (pos.x > 500)
+		{
+			pos.x -= static_cast<LONG>(_speed * Timer::GetDeltaTime());
+		}
+
+		cout << "g_pos.x : " << g_pos.x << endl;
 	}
 
 	// 오른쪽 이동
@@ -61,27 +70,45 @@ void PlayerMovement::Update()
 	if (Input::GetButton('D'))
 	{
 		SetSpeed(200.0f);
-		pos.x += static_cast<LONG>(_speed * Timer::GetDeltaTime());
+		g_pos.x += static_cast<LONG>(_speed * Timer::GetDeltaTime());
+
+		if (pos.x < 500)
+		{
+			pos.x += static_cast<LONG>(_speed * Timer::GetDeltaTime());
+		}
+
+		cout << "g_pos.x : " << g_pos.x << endl;
 	}
 
 	// 달리기 멈춘 후 관성
 	if (anim->GetIsAnimEnd() == false && anim->GetAnimName() == L"RunStop" && anim->GetIsReverse() == true)
 	{
-		pos.x -= static_cast<LONG>(_speed * Timer::GetDeltaTime());
+		g_pos.x -= static_cast<LONG>(_speed * Timer::GetDeltaTime());
 		_speed -= _inertia * Timer::GetDeltaTime();
 		anim->SetIsReverse(true);
+
+		if (anim->GetIsAnimEnd())
+		{
+			//isRunning = false;
+		}
 	}
 
 	if (anim->GetIsAnimEnd() == false && anim->GetAnimName() == L"RunStop" && anim->GetIsReverse() == false)
 	{
-		pos.x += static_cast<LONG>(_speed * Timer::GetDeltaTime());
+		g_pos.x += static_cast<LONG>(_speed * Timer::GetDeltaTime());
 		_speed -= _inertia * Timer::GetDeltaTime();
 		anim->SetIsReverse(false);
+
+		if (anim->GetIsAnimEnd())
+		{
+			//isRunning = false;
+		}
 	}
 
 	// 행동 종료 후 Idle
 	if (anim->GetIsAnimEnd() && anim->GetAnimName() == L"RunStop")
 	{
+		//isRunning = false;
 		animator->SetIsMovable(true);
 		SetSpeed(200.0f);
 	}
