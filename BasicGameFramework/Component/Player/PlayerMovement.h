@@ -2,12 +2,15 @@
 
 #include "../Component.h"
 
+class PlayerAnimator;
+class AnimationComponent;
 class PlayerMovement : public Component
 {
 public:
 	using Component::Component;
 	virtual ~PlayerMovement() noexcept = default;
 
+	virtual void	Init() override;
 	virtual void	Update() override;
 
 	void			SetSpeed(float speed) noexcept;
@@ -15,9 +18,10 @@ public:
 	float			GetSpeed() const noexcept;
 private:
 	float			_speed;
-	float			_inertia = 200.0f; // 包己
+	float			_inertia = 100.0f; // 包己
 	float			_velocity = 800.0f; // 吝仿啊加档
 	float			_gravity;
 	POINT			_prevPos;
-	POINT			_postPos;
+	PlayerAnimator* animator;
+	AnimationComponent* anim;
 };

@@ -4,31 +4,45 @@
 #include "../Util/Input.h"
 #include "../Util/Timer.h"
 
+#include <iostream>
+
 void MapSpriteComponent::Update()
 {
-	POINT pos = _owner->GetPosition();
+	
 
 	if (Input::GetButton('A'))
 	{
-		x -= static_cast<LONG>(cameraSpeed * Timer::GetDeltaTime());
+		if (g_isMapEnd == false)
+		{
+			x -= static_cast<LONG>(cameraSpeed * Timer::GetDeltaTime());
+		}
 
 		if (x <= 0)
 		{
 			x = 0;
-			pos.x -= static_cast<LONG>(200 * Timer::GetDeltaTime());
-			_owner->SetPosition(pos);
+
+			if (isStandard)
+			{
+				g_isMapEnd = true;
+			}
 		}
 	}
 
 	if (Input::GetButton('D'))
 	{
-		x += static_cast<LONG>(cameraSpeed * Timer::GetDeltaTime());
+		if (g_isMapEnd == false)
+		{
+			x += static_cast<LONG>(cameraSpeed * Timer::GetDeltaTime());
+		}
 
 		if (x >= _owner->GetWidth() - printWidth - 2)
 		{
 			x = _owner->GetWidth() - printWidth - 2;
-			pos.x += static_cast<LONG>(200 * Timer::GetDeltaTime());
-			_owner->SetPosition(pos);
+
+			if (isStandard)
+			{
+				g_isMapEnd = true;
+			}
 		}
 	}
 }
@@ -59,6 +73,16 @@ void MapSpriteComponent::SetCoordinate(int x, int y)
 	this->y = y;
 }
 
+void MapSpriteComponent::SetX(int x)
+{
+	this->x = x;
+}
+
+void MapSpriteComponent::SetY(int y)
+{
+	this->y = y;
+}
+
 void MapSpriteComponent::SetWidth(int width)
 {
 	printWidth = width;
@@ -67,4 +91,14 @@ void MapSpriteComponent::SetWidth(int width)
 void MapSpriteComponent::SetHeight(int height)
 {
 	printHeight = height;
+}
+
+void MapSpriteComponent::SetStandard(bool state)
+{
+	isStandard = state;
+}
+
+int MapSpriteComponent::GetX()
+{
+	return x;
 }

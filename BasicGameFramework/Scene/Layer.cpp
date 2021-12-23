@@ -94,6 +94,24 @@ void Layer::RemoveObject(const wstring& tag)
 		});
 }
 
+GameObject* Layer::FindObject(const std::wstring& tag)
+{
+	auto iter = find_if(_objects.begin(), _objects.end(),
+		[&tag](const GameObject* obj)
+		{
+			return obj->GetTag() == tag;
+		});
+
+	if (iter == _objects.end())
+	{
+		return nullptr;
+	}
+	else
+	{
+		return *iter;
+	}
+}
+
 bool Layer::IsCollision(GameObject* obj1, GameObject* obj2)
 {
 	RECT* rect1 = obj1->GetComponent<HitBoxComponent>()->GetRect();

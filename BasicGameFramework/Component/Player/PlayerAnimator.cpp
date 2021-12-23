@@ -30,6 +30,7 @@ void PlayerAnimator::Update()
 		isMovable = true;
 
 		anim->SetAnim(L"Idle");
+		anim->SetIsLoop(true);
 		anim->SetIsReverse(false);
 		anim->SetAnimSpeed(6);
 
@@ -50,9 +51,14 @@ void PlayerAnimator::Update()
 		anim->SetAnimSpeed(10);
 	}
 
-	// 오른쪽을 보고있는 상태에서 점프 중
-	if (isMovable == false && anim->GetAnimName() == L"Jump" && anim->GetIsReverse() == false)
+	// 점프 중 오른쪽 입력
+	if (Input::GetButtonDown('D') && isMovable == false && anim->GetAnimName() == L"Jump" && anim->GetIsReverse() == false)
 	{
+		anim->SetAnim(L"JumpForward");
+		anim->SetIsLoop(false);
+		anim->SetFrameX(3);
+		anim->SetIsReverse(false);
+		anim->SetAnimSpeed(6);
 	}
 
 	// 오른쪽을 보고있는 상태에서 점프애니메이션 종료

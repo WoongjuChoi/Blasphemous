@@ -11,6 +11,7 @@ void BrotherhoodBackground5::Init()
 	backgroundImg->SetCameraSpeed(160);
 	backgroundImg->SetWidth(500);
 	backgroundImg->SetHeight(500);
+	backgroundImg->SetStandard(true);
 
 	SetPivot(Pivot::Center);
 }

@@ -3,4 +3,4 @@
 
 HINSTANCE		g_hInstance;
 HWND			g_hWnd;
-POINTFLOAT		g_pos = { 0.0f, 0.0f };
+bool			g_isMapEnd = false;

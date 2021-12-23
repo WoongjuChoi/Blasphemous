@@ -25,9 +25,14 @@ void Player::Init()
 	player->AddAnimation(L"Running", L"Image/player/running.bmp", GetWidth(), GetHeight(), 14, 1, true, RGB(255, 0, 255));
 	player->AddAnimation(L"RunStop", L"Image/player/runStop.bmp", GetWidth(), GetHeight(), 8, 1, true, RGB(255, 0, 255));
 	player->AddAnimation(L"Jump", L"Image/player/jump.bmp", GetWidth(), GetHeight(), 5, 1, true, RGB(255, 0, 255));
+	player->AddAnimation(L"JumpForward", L"Image/player/jumpForward.bmp", GetWidth(), GetHeight(), 15, 1, true, RGB(255, 0, 255));
+	player->AddAnimation(L"Dodge", L"Image/player/dodge.bmp", GetWidth(), GetHeight(), 13, 1, true, RGB(255, 0, 255));
+	player->AddAnimation(L"Attack", L"Image/player/attack.bmp", GetWidth(), GetHeight(), 28, 1, true, RGB(255, 0, 255));
 
 	player->SetAnim(L"Idle");
 	player->SetScale(1.6f);
 
 	PlayerAnimator* animator = new PlayerAnimator(this);
+
+	GameObject::Init();
 }

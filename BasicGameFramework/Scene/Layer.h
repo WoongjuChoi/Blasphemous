@@ -26,6 +26,7 @@ public:
 
 	void				AddObject(GameObject* obj);
 	void				RemoveObject(const std::wstring& tag);
+	GameObject*			FindObject(const std::wstring& tag);
 
 	bool				IsCollision(GameObject* obj1, GameObject* obj2);
 

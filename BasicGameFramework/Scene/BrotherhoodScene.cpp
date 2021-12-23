@@ -32,13 +32,13 @@ void BrotherhoodScene::Init()
 	BrotherhoodBackground4* backgroundImg4 = new BrotherhoodBackground4(this, BackgroundLayer, L"BrotherHoodBackground4");
 	backgroundImg4->SetPosition(0, 0);
 
+	BrotherhoodBackground5* backgroundImg5 = new BrotherhoodBackground5(this, ForegroundLayer, L"BrotherHoodBackground5");
+	backgroundImg5->SetPosition(0, 0);
 
 	Player* player = new Player(this, MainLayer, L"Player");
 	player->SetPosition(500, 500);
 
 
-	BrotherhoodBackground5* backgroundImg5 = new BrotherhoodBackground5(this, ForegroundLayer, L"BrotherHoodBackground5");
-	backgroundImg5->SetPosition(0, 0);
 
 
 
