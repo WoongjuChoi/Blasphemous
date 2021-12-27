@@ -49,7 +49,10 @@ void MapSpriteComponent::Update()
 
 void MapSpriteComponent::Render(HDC hdc)
 {
-	img->MapRender(hdc, x, y, printWidth, printHeight, scale);
+	if (img != nullptr)
+	{
+		img->MapRender(hdc, x, y, printWidth, printHeight, scale);
+	}
 }
 
 void MapSpriteComponent::SetImage(const wchar_t* fileName, int width, int height, bool isTrans, COLORREF transColor)

@@ -78,6 +78,8 @@ public:
 	int GetMaxFrameX() { return imageInfo->maxFrameX; }
 	int GetMaxFrameY() { return imageInfo->maxFrameY; }
 
+	void SetMaxFrameX(int x);
+
 	int GetFrameWidth() { return imageInfo->frameWidth; }
 	int GetFrameHeight() { return imageInfo->frameHeight; }
 

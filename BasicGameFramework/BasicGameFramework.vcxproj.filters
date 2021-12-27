@@ -163,6 +163,9 @@
     <ClInclude Include="Object\BrotherhoodBackground5.h">
       <Filter>Object\Brotherhood</Filter>
     </ClInclude>
+    <ClInclude Include="Object\Boss.h">
+      <Filter>Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BasicGameFramework.rc">
@@ -285,6 +288,9 @@
     </ClCompile>
     <ClCompile Include="Object\BrotherhoodBackground5.cpp">
       <Filter>Object\Brotherhood</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\Boss.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

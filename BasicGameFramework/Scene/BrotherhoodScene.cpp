@@ -10,6 +10,7 @@
 #include "../Object/BrotherhoodBackground3.h"
 #include "../Object/BrotherhoodBackground4.h"
 #include "../Object/BrotherhoodBackground5.h"
+#include "../Object/Boss.h"
 
 void BrotherhoodScene::Init()
 {
@@ -38,9 +39,8 @@ void BrotherhoodScene::Init()
 	Player* player = new Player(this, MainLayer, L"Player");
 	player->SetPosition(500, 500);
 
-
-
-
+	Boss* boss = new Boss(this, MainLayer, L"Boss");
+	boss->SetPosition(1200, 400);
 
 	Scene::Init();
 }

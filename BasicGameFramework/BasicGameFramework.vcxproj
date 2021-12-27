@@ -160,6 +160,7 @@
     <ClInclude Include="IBehaviour.h" />
     <ClInclude Include="Manager\ImageManager.h" />
     <ClInclude Include="Manager\SceneManager.h" />
+    <ClInclude Include="Object\Boss.h" />
     <ClInclude Include="Object\BrotherhoodBackground.h" />
     <ClInclude Include="Object\BrotherhoodBackground1.h" />
     <ClInclude Include="Object\BrotherhoodBackground2.h" />
@@ -211,6 +212,7 @@
     <ClCompile Include="global.cpp" />
     <ClCompile Include="Manager\ImageManager.cpp" />
     <ClCompile Include="Manager\SceneManager.cpp" />
+    <ClCompile Include="Object\Boss.cpp" />
     <ClCompile Include="Object\BrotherhoodBackground.cpp" />
     <ClCompile Include="Object\BrotherhoodBackground1.cpp" />
     <ClCompile Include="Object\BrotherhoodBackground2.cpp" />

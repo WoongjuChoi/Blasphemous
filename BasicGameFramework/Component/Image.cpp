@@ -182,6 +182,11 @@ void Image::MapRender(HDC hdc, int originX, int originY, int printWidth, int pri
 	}
 }
 
+void Image::SetMaxFrameX(int x)
+{
+	imageInfo->maxFrameX = x;
+}
+
 void Image::SetIsReverse(bool reverse)
 {
 	isReverse = reverse;

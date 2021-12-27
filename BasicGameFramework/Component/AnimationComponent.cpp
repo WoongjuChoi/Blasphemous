@@ -1,10 +1,13 @@
 #include "stdafx.h"
 #include "AnimationComponent.h"
+#include "../Util/Timer.h"
+
 #include "Object/GameObject.h"
 #include <iostream>
 
 void AnimationComponent::Update()
 {
+	// 애니메이션 재생
 	isAnimEnd = (img->GetMaxFrameX() - 1 == frameX) ? true : false;
 
 	elapsedCount++;
@@ -26,12 +29,56 @@ void AnimationComponent::Update()
 
 		elapsedCount = 0;
 	}
+
+	// 플레이어가 아닌 오브젝트 카메라 이동
+	if (isPlayer == false)
+	{
+		if (Input::GetButton('A'))
+		{
+			if (g_isMapEnd == false)
+			{
+				x = _owner->GetX();
+				x += static_cast<LONG>(cameraSpeed * Timer::GetDeltaTime());
+				_owner->SetX(x);
+			}
+
+			//if (x <= 10)
+			//{
+			//	x = 10;
+			//}
+		}
+
+		if (Input::GetButton('D'))
+		{
+			if (g_isMapEnd == false)
+			{
+				x = _owner->GetX();
+				x -= static_cast<LONG>(cameraSpeed * Timer::GetDeltaTime());
+				_owner->SetX(x);
+			}
+
+			/*if (x >= 1260)
+			{
+				x = 1260;
+			}*/
+		}
+
+		cout << "Boss X : " << x << endl;
+	}
 }
 
 void AnimationComponent::Render(HDC hdc)
 {
 	auto pos = _owner->GetRenderPos();
-	img->Render(hdc, pos.x, pos.y, frameX, frameY, scale);
+
+	if (_animName == L"Attack")
+	{
+		img->Render(hdc, pos.x - 75, pos.y, frameX, frameY, scale);
+	}
+	else
+	{
+		img->Render(hdc, pos.x, pos.y, frameX, frameY, scale);
+	}
 }
 
 void AnimationComponent::AddAnimation(wstring animName, const wchar_t* fileName, int width, int height, int maxFrameX, int maxFrameY, bool isTrans, COLORREF transColor)
@@ -89,9 +136,29 @@ void AnimationComponent::SetFrameY(int y)
 	frameY = y;
 }
 
+void AnimationComponent::SetMaxFrameX(int x)
+{
+	img->SetMaxFrameX(x);
+}
+
 void AnimationComponent::SetAnimSpeed(int speed)
 {
 	animSpeed = speed;
+}
+
+void AnimationComponent::SetCameraSpeed(int speed)
+{
+	cameraSpeed = speed;
+}
+
+void AnimationComponent::SetIsPlayer(bool state)
+{
+	isPlayer = state;
+}
+
+int AnimationComponent::GetFrameX()
+{
+	return img->GetCurrFrameX();
 }
 
 bool AnimationComponent::GetIsAnimEnd()

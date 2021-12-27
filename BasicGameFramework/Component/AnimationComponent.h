@@ -37,8 +37,12 @@ public:
 	void SetScale(float scale = 1.0f);
 	void SetFrameX(int x);
 	void SetFrameY(int y);
+	void SetMaxFrameX(int x);
 	void SetAnimSpeed(int speed);
+	void SetCameraSpeed(int speed);
+	void SetIsPlayer(bool state);
 
+	int  GetFrameX();
 	bool GetIsAnimEnd();
 	bool GetIsReverse();
 	std::wstring GetAnimName();
@@ -49,9 +53,13 @@ private:
 	int frameX = 0;
 	int frameY = 0;
 	int animSpeed = 6;
+	int cameraSpeed = 0;
 	float scale = 1.0f;
+	long x = 0;
+	long y = 0;
 	bool isAnimEnd = false;
 	bool isLoop = true;
+	bool isPlayer = false;
 	std::unordered_map<std::wstring, AnimInfo> animations;
 	std::wstring _animName;
 };
