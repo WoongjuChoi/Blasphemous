@@ -29,12 +29,17 @@ public:
 	GameObject*			FindObject(const std::wstring& tag);
 
 	bool				IsCollision(GameObject* obj1, GameObject* obj2);
+	void				PrintText(HDC hdc, LPCTSTR text, int posX, int posY);
+	void				SetText(LPCTSTR text, int x, int y);
 
 private:
 	Scene*							_scene;
 	INT32							_zOrder;
 	std::wstring					_tag = L"";
 	std::vector<GameObject*>		_objects;
-	RECT							_tempRect;
+	RECT							_tempRect = {0, 0};
 	bool							_isFloorCollision = false;
+	LPCTSTR							_text = nullptr;
+	int								_x = 0;
+	int								_y = 0;
 };
